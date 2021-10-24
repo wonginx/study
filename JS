@@ -1,0 +1,271 @@
+JS 변수선언 let , const
+let 변할 수 있는 변수 ( but name = 으로 선언하면 가능 )
+let name = "Mike";
+let name = "Google";
+-> 오류 / 이미 let name 이 선언되어있다
+
+let name = "Mike";
+name = "Google";
+-> Google 재선언 가능
+
+const 절대 변하지 않는 변수 (파이 최대값 최저값 등)
+const PI = 3.14;
+const SPEED_LIMIT = 50;
+const BIRTH_DAY = '2020-01-01';
+
+JS 입력받는 prompt
+const name = promt("예약일을 입력해주세요.","2020-10-");
+
+-- tip // 모든변수 const 로 선언 후 변할 수 있는 값만 let 
+
+JS 확인하는 confirm // 예 or 아니요 //
+const isAdult = confirm("당신은 성인입니까?");
+
+consolo.log(isAdult) 
+성인이라면 True, 아니라면 False
+
+JS 메세지 띄우기 Alert
+const isAdult = Alert("당신은 성인입니까?";
+확인창만 띄워짐
+---
+단점
+1. 스크립트 일시정지
+2. 스타일링 X (위치 모양 설정불가)
+
+JS 형변환
+const mathScore = prompt("수학 몇점?");
+const engScore = prompt("영어 몇점?");
+const result = (mathScore + engScore) / 2;
+
+console.log(result) 
+> 값 오류
+--
+const mathScore = 90;
+const engScore = 80;
+const result = (mathScore + engScore) / 2;
+-> 정상
+--
+-> prompt 로 받은 값은 모두 문자형으로 받음
+문자열
+String(값) -> 문자형으로 표현
+
+Number("값") -> 숫자형으로 표현
+Number(true) = 1
+Number(true) = 0
+Number("문자") = NaN
+
+Boolean() -> 불린형 변환
+0, ", null, undefined, NaN -> False
+
+Number(null) = 0
+Number(undefined) = NaN
+
+JS 증가연산자, 감소연산자
+let num = 10;
+let result = ++num; # 앞에 넣어줘야함
+console.log(result); -> 11
+
+JS 비교연산자 < > = == !=
+-> 다른 언어와 동일한 비교연산자 a != 3 -> ture or false
+
+JS 동등연산자
+const a = 1;
+const b = "1";
+
+const.log(a == b ); > true // 이상하지 JS
+const.log(a === b ); > false 형 비교까지
+
+JS 비교연산자
+if(age > 19){ -> ture or false 로 나타남
+	console.log('환영합니다');
+	}else if(age === 19){
+	console.log('수능 잘치세요.');
+	} else {
+	console.log('안녕히가세요');
+	}
+-> age가 19보다 크면 환영 , 작으면 안녕 , 19 면 수능
+
+JS 논리연산자
+-> 다른 언어와 동일함
+-> || && !
+
+EX)
+우선순위 // 남자이고, 이름이 Mike 이거나 성인이면 통과
+const gender = 'F';
+const name = 'Jane';
+const isAdult = true;
+
+if(gender === 'M' && name === 'Mike' || is Adult){
+	console.log('통과')
+} else{
+	console.log('돌아가')
+}
+-> 통과 / 성인이기때문에 통과 / 우선순위 and > or 
+
+Answer code
+if(gender === 'M' && (name === 'Mike' || is Adult)){
+	console.log('통과')
+} else{
+	console.log('돌아가')
+-> 돌아가 / Jane 이기때문에 () 로 우선순위 부여
+
+JS 반복문 loop
+
+1부터 10까지 로그찍기
+for(let i = 0; i < 10; i++{
+	// 반복코드
+} 
+let i = 0;
+while(i<10{
+	// 반복코드
+	console.log(i);
+	i++;
+}
+do..while // 사용성 낮음 // 개취..
+do 먼저 실행
+break, continue 동일
+
+JS switch // if else if 로 작성가능 // 좀 더 간략하게 표현할 때 사용가능 // 브레이크문 넣어야함
+
+let fruit = prompt('무슨 과일을 먹고싶나요?')
+switch(fruit){
+	case '사과':
+		console log('100원 입니다.);
+		break; -> 넣어야 100원에서 멈춤
+	case '바나나':
+		console log('200원 입니다.);
+사과 -> 100원 , 200원 모두 출력 -> break 문 실행안해서 / case 는 이후 코드 다 실행함
+	default :
+		console.log('그런 과일은 없습니다');
+해당 과일을 입력하지 않을시 default 값 실행
+
+JS 함수(function)
+function showError(매개변수){
+	alert('에러발생');
+}
+showError();
+
+function sayHello(name){
+	const msg = 'Hello, ${name}';
+	console.log(msg);
+}
+sayHello('Mike');
+-> "Hello, Mike"
+	
+(return문) // 다른 언어 동일
+
+JS 함수선언문 vs 함수표현식
+function sayHello(){          let sayHello = function()
+	console.log("hello");           console.log("hello");
+}                              }
+sayHello;                      sayHello;
+
+함수선언문 : 어디서든 호출가능 // hoisting // 선언하면 저장됨
+함수표현식 : 호출된 함수 밑에서부터 사용가능
+
+JS 화살표함수
+
+let add = function(num1, num2){
+	return num1 + num2;
+}
+
+화살표함수로 변환
+let add = (num1, num2) => {
+	return num1 + num2;
+}
+
+let add = (num1, num2) => (
+			 num1 + num2;
+) // return 문은 중괄호를 소괄호로 사용시 대체가능
+
+let add = (num1, num2) => num1 + num2;
+// return 문이 한줄이라면 괄호도 삭제 가능
+
+JS Object 객체
+
+const superman = {
+	name : 'clark',
+	age : 33,
+}
+
+-접근
+superman.name // 'clark'
+superman['age'] // 33
+
+-추가
+superman.gender = 'male';
+superman['hairColor'] = 'black';
+
+-삭제
+delete superman.hairColor;
+
+function makeObject(name, age){
+	return {
+		name : name, -> name, 축약가능 
+		age : age, -> age, 
+		hobby : 'football'
+	};
+}
+consts Mike = makeObject("Mike", 30);
+
+JS Object In 문
+
+function isAdult(user){
+	if (!('age' in user) ||
+			user.age < 20)
+		return false;
+	}
+	return true;
+}
+유저안에 age가 없거나, 20살 미만이면 false , 아니면 true // boolean 반환 // 
+
+const Mike = {
+	name = "Mike"
+	age = 30
+}; -> True
+
+JS Object for in 문
+
+for(x in Mike){
+	console.log(Mike[x]) 
+-> 'Mike', 30 // name ~ age 까지 돌고 출력
+	console.log(x) 
+-> 'name', 'age' // 마이크가 가지고 있는 키값 출력
+
+JS Object method
+
+method : 객체 프로퍼티로 할당 된 함수
+-> 화살표함수 이용x // 전역변수를 표현해버린다.
+let boy = {
+	name : "Mike",
+	showName : function () {
+		console.log(boy.name)
+	}
+}; 
+boy.showName();
+-> "Mike"
+
+LS Array
+
+let days = ['mon', 'tue']
+console.log(days[1]); 
+-> 'tue'
+console.log(days.length)
+-> 2
+days.push() // 배열에 값 추가(뒤부터)
+days.unshift() // 배열 제일 앞에 값 추가
+
+JS Array for 문
+
+for(let i = 0; index <days.length; i++){
+	console.log(days[i]);
+}
+-> days 값 출력 mon~
+
+JS Array for of 문
+
+for(let day of days){
+	console.log(day);
+}
+-> days 값 출력
+
